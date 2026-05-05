@@ -1,8 +1,9 @@
 import requests
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters, CommandHandler
 
-BOT_TOKEN = "8722777173:AAGtcCTsBIrIzVzbWNFsUGbmv4AQlJWTSVw"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 API_URL = "https://web-production-a5b24.up.railway.app/predict"
 
 print("Bot started...")
@@ -34,7 +35,7 @@ Confidence: {confidence:.2f}%
 
 Analisis dilakukan menggunakan model Deep Learning berbasis IndoBERT
 
-<:>Catatan:</b>
+<b>Catatan:</b>
 Hasil ini merupakan prediksi otomatis dan tidak menggantikan verifikasi fakta secara langsung. Gunakan sebagai referensi awal sebelum mengambil keputusan.
     """
         

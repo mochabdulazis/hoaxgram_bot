@@ -9,27 +9,40 @@ RSS_FEEDS = {
     "Tirto": "https://tirto.id/rss"
 }
 
-
 def extract_keywords(text):
 
-    words = re.findall(r'\w+', text.lower())
+    text = text.lower()
 
     stopwords = {
         "yang", "dan", "di", "ke", "dari",
-        "ini", "itu", "ada", "akan"
+        "ini", "itu", "ada", "akan",
+        "dengan", "karena", "setelah",
+        "terkait", "dalam", "untuk",
+        "para", "sebuah", "oleh"
     }
 
-    keywords = [
-        w for w in words
-        if len(w) > 3 and w not in stopwords
-    ]
+    words = re.findall(r'\w+', text)
 
-    return keywords[:5]
+    keywords = []
+
+    for word in words:
+
+        if (
+            len(word) > 4 and
+            word not in stopwords
+        ):
+            keywords.append(word)
+
+    # Remove duplicate
+    keywords = list(dict.fromkeys(keywords))
+
+    return keywords[:10]
 
 
 def get_related_news(query, max_results=4):
 
     keywords = extract_keywords(query)
+    print("KEYWORDS:", keywords)
 
     results = []
     seen_titles = set()
@@ -54,6 +67,7 @@ def get_related_news(query, max_results=4):
                     keyword in title_lower
                     for keyword in keywords
                 )
+                print(title, score)
 
                 if score > 0:
 

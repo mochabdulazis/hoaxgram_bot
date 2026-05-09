@@ -80,8 +80,7 @@ def get_related_news(query, max_results=4):
                         "link": entry.link,
                         "score": score
                     })
-         keywords = extract_keywords(query)
-         print("KEYWORDS:", keywords)
+         
 
         except Exception:
             continue
@@ -90,6 +89,8 @@ def get_related_news(query, max_results=4):
         results,
         key=lambda x: x["score"],
         reverse=True
+        keywords = extract_keywords(query)
+        print("KEYWORDS:", keywords)
     )
 
     return results[:max_results]

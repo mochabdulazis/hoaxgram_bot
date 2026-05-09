@@ -63,11 +63,15 @@ def get_related_news(query, max_results=4):
 
                 title_lower = title.lower()
 
-                score = sum(
-                    keyword in title_lower
+                matched_keywords = [
+                    keyword
                     for keyword in keywords
-                )
-                print(title, score)
+                    if keyword in title_lower
+                ]
+
+                score = len(matched_keywords)
+
+                print(title, matched_keywords, score)
 
                 if score > 0:
 

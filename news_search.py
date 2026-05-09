@@ -40,9 +40,8 @@ def extract_keywords(text):
 
 
 def get_related_news(query, max_results=4):
-
-   
-
+    keywords = extract_keywords(query)
+    print("KEYWORDS:", keywords)
     results = []
     seen_titles = set()
 
@@ -89,8 +88,6 @@ def get_related_news(query, max_results=4):
         results,
         key=lambda x: x["score"],
         reverse=True
-        keywords = extract_keywords(query)
-        print("KEYWORDS:", keywords)
     )
 
     return results[:max_results]

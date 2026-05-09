@@ -2,12 +2,12 @@ import requests
 import os
 
 from telegram import Update
+from telegram.constants import ChatAction
 from telegram.ext import (
     ApplicationBuilder,
     MessageHandler,
     ContextTypes,
     filters,
-    ChatAction,
     CommandHandler
 )
 

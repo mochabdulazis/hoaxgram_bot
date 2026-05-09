@@ -3,7 +3,12 @@ import re
 
 RSS_FEEDS = {
     "CNN Indonesia": "https://www.cnnindonesia.com/rss",
-    "Antara": "https://www.antaranews.com/rss/terkini.xml",
+    "CNN Indonesia Nasional": "https://www.cnnindonesia.com/nasional/rss",
+    "Antara Terkini": "https://www.antaranews.com/rss/terkini.xml",
+    "Antara Politik": "https://www.antaranews.com/rss/politik.xml",
+    "Antara Ekonomi": "https://www.antaranews.com/rss/ekonomi.xml",
+    "Antara Hukum": "https://www.antaranews.com/rss/hukum.xml",
+    "Antara Metro": "https://www.antaranews.com/rss/metro.xml",
     "Tempo": "https://rss.tempo.co",
     "Kumparan": "https://lapi.kumparan.com/v2.0/rss/",
     "Tirto": "https://tirto.id/rss"

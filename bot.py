@@ -7,6 +7,7 @@ from telegram.ext import (
     MessageHandler,
     ContextTypes,
     filters,
+    ChatAction,
     CommandHandler
 )
 
@@ -21,6 +22,10 @@ print("Bot started...")
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = update.message.text
+    await context.bot.send_chat_action(
+        chat_id=update.effective_chat.id,
+        action=ChatAction.TYPING
+    )
 
     try:
         # =========================

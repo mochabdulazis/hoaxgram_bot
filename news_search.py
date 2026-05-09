@@ -71,7 +71,7 @@ def get_related_news(query, max_results=4):
 
                 print(title, matched_keywords, score)
 
-                if score > 0:
+                if score >= 2:
 
                     results.append({
                         "source": source,

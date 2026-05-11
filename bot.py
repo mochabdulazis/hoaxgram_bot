@@ -69,7 +69,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         if related_news:
 
-            news_text += "\n📰 <b>Berita Terkait</b>\n"
+            news_text += "<b>Berita Terkait:</b>\n"
 
             for news in related_news:
 
@@ -78,12 +78,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 link = news["link"]
 
                 source_badge = {
-                    "CNN Indonesia": "🟥 CNN",
-                    "Antara": "🟦 ANTARA",
-                    "Tempo": "🟩 TEMPO",
-                    "Kumparan": "🟨 KUMPARAN",
-                    "Tirto": "🟪 TIRTO"
-                }.get(source, "📰 NEWS")
+                    "CNN Indonesia": "[CNN Indonesia]",
+                    "Antara": "[ANTARA]",
+                    "Tempo": "[TEMPO]",
+                    "Kumparan": "[KUMPARAN]",
+                    "Tirto": "[TIRTO]"
+                }.get(source, "[NEWS]")
 
                 news_text += (
                     f"\n{source_badge} "
@@ -93,7 +93,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         else:
             news_text = (
-                "\n📰 <b>Berita Terkait</b>\n"
+                "<b>Berita Terkait</b>\n"
                 "Tidak ditemukan berita relevan "
                 "dari sumber terpercaya."
             )
@@ -102,24 +102,21 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # Final Reply
         # =========================
         reply = f"""
-📊 <b>HASIL ANALISIS BERITA</b>
+<b>HASIL ANALISIS BERITA</b>
 
 Status:
 {status}
-
 Confidence:
 {confidence:.2f}%
-
-🧠 <b>Penjelasan</b>
+<b>Penjelasan:</b>
 {explanation}
-
-⚙️ <b>Sistem</b>
+<b>Sistem:</b>
 Analisis dilakukan menggunakan model
 Deep Learning berbasis IndoBERT.
 
 {news_text}
 
-⚠️ <b>Catatan</b>
+⚠️ <b>Catatan:</b>
 Hasil ini merupakan prediksi otomatis
 dan tidak menggantikan verifikasi fakta resmi.
 """
@@ -144,7 +141,7 @@ dan tidak menggantikan verifikasi fakta resmi.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     message = """
-👋 <b>Selamat datang di Hoax Detection Bot</b>
+<b>Selamat datang di Hoax Detection Bot</b>
 
 Bot ini membantu menganalisis apakah
 sebuah berita termasuk:
@@ -153,7 +150,7 @@ sebuah berita termasuk:
 atau
 ✅ Fakta
 
-📌 <b>Cara Penggunaan</b>
+<b>Cara Penggunaan:</b>
 Kirimkan teks berita langsung ke bot.
 
 Bot akan:
@@ -161,7 +158,7 @@ Bot akan:
 • memberikan confidence score
 • menampilkan berita terkait
 
-⚠️ <b>Catatan</b>
+<b>Catatan:</b>
 Hasil analisis berbasis AI dan
 tidak menggantikan verifikasi fakta resmi.
 """
@@ -178,7 +175,7 @@ tidak menggantikan verifikasi fakta resmi.
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     message = """
-📖 <b>Bantuan Penggunaan Bot</b>
+<b>Bantuan Penggunaan Bot</b>
 
 1. Kirim teks berita
 2. Tunggu hasil analisis

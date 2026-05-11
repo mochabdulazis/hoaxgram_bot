@@ -105,13 +105,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 <b>HASIL ANALISIS BERITA</b>
 
 Status:
-{status}
-Confidence:
-{confidence:.2f}%
-<b>Penjelasan:</b>
-{explanation}
-<b>Sistem:</b>
-Analisis dilakukan menggunakan model
+{status} {confidence:.2f}%
+<b>Penjelasan:</b> {explanation}
+<b>Sistem:</b> Analisis dilakukan menggunakan model
 Deep Learning berbasis IndoBERT.
 
 {news_text}

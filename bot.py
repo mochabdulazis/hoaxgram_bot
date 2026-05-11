@@ -14,7 +14,7 @@ from telegram.ext import (
 from news_search import get_related_news
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-API_URL = "https://web-production-a5b24.up.railway.app/predict"
+API_URL = "https://elsa-varicose-diann.ngrok-free.dev/predict"
 
 print("Bot started...")
 
